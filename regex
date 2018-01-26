@@ -18,3 +18,10 @@ Create pattern ^post?(\d+)/$:
 
 
 When writing regex in Python, it always starts with "r". This tells python the following string contains special characters for regular expressions. 
+
+
+url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail') EXPLAINED!!!
+(?P<pk>\d+): this means that Django will take everything that you place here abd transfer it to a view as a variable called pk. (NOTE: this matches the name given to the primary key variable back in blog/templates/blog/post_list.html)
+\d tells us that it can only be a digit, not a letter and + means that there needs to be one or more digits there. 
+NOT VALID: /post//		VALID: /post/12345/
+if you enter .../post/5/ into the browser, django will understand that you are looking for a view called post_detail and transfer the info that pk equals 5 to that view. 
