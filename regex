@@ -1,0 +1,20 @@
+Regular Expressions (regex): 
+
+These are normal used with django....
+
+	    ^ for the beginning of the text
+	    $ for the end of the text
+	    \d for a digit
+	    + to indicate that the previous item should be repeated at least once
+	    () to capture part of the pattern
+
+taking /post/12345/ as an example, where 12345 is the number of a post.
+Create pattern ^post?(\d+)/$:
+
+	^post/ is telling django to take anything that has post/ at the beginning of the url
+	(\d+) tells django there will be a number, one or more digits and that we want the number captured and extracted. 
+	/ tells django that another / character should follow. 
+	$ then indicates the end of the URL meaning that only strings ending with the / will match this pattern. 
+
+
+When writing regex in Python, it always starts with "r". This tells python the following string contains special characters for regular expressions. 
